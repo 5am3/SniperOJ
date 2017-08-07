@@ -298,3 +298,4 @@ class Challenge_model extends CI_Model {
         $this->db->insert('submit_log', $submit_info);
     }
 }
+ 
