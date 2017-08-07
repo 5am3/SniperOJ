@@ -230,7 +230,11 @@ class Challenge_model extends CI_Model {
             $result[$i]['username'] = $username;
             $result[$i]['challenge_name'] = $challenge_name;
         }
-        return $result;
+        $result_l=array();
+        for ($i=0; $i < count($result)&&$i<4; $i++) {
+        	$result_l[i]=$result[i];
+        }
+        return $result_l;
     }
 
     /* 获取第 n 血 */
