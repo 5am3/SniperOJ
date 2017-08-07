@@ -218,7 +218,9 @@ class Challenge_model extends CI_Model {
         ->where(array(
             'is_current' => '1',
             'submit_time > ' => time() - $offset_time,
-        ))->limit(4,0)
+        ))
+        ->order_by('submit_time','DESC')
+        ->limit(4,0)
         ->get('submit_log');
         $result = $query->result_array();
         for ($i=0; $i < count($result); $i++) { 
