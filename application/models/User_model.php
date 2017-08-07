@@ -201,7 +201,7 @@ class User_model extends CI_Model {
 		    $user_id = $result[$i]['user_id'];
 		    $submit_times = $this->get_user_submit_times($user_id);
 		    $accept_times = $this->get_user_submit_accept_times($user_id);
-		    $pass_rate = sprintf("%.1f", $accept_times * 100.0 / $submit_times);
+		    $pass_rate = sprintf("%.1f", $accept_times * 100.0 / ($submit_times?$submit_times:1));
 		    $result[$i]['submit_times'] = $submit_times;
 		    $result[$i]['accept_times'] = $accept_times;
 		    $result[$i]['pass_rate'] = $pass_rate;
