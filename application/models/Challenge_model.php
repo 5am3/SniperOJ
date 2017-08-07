@@ -218,7 +218,7 @@ class Challenge_model extends CI_Model {
         ->where(array(
             'is_current' => '1',
             'submit_time > ' => time() - $offset_time,
-        ))
+        ))->limit(4,0)
         ->get('submit_log');
         $result = $query->result_array();
         for ($i=0; $i < count($result); $i++) { 
@@ -230,11 +230,7 @@ class Challenge_model extends CI_Model {
             $result[$i]['username'] = $username;
             $result[$i]['challenge_name'] = $challenge_name;
         }
-        $result_l=array();
-        for ($i=0; $i < count($result)&&$i<4; $i++) {
-        	$result_l[i]=$result[i];
-        }
-        return $result_l;
+        return $result;
     }
 
     /* 获取第 n 血 */
